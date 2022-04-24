@@ -1,0 +1,162 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  // Storing list of drinks in string type array "drinkmenu"
+  string drinkmenu[10] =
+  {
+
+    "Espresso",
+    "Pumpkin Spice Latte",
+    "Skinny Peppermint Mocha",
+    "Strawberries & Creme Frappuccino",
+    "Caramel Macchiato",
+    "Mango Black Tea",
+    "Strawberry Matcha Tea",
+    "London Fog Tea",
+    "Honey Citrus Mint Tea",
+    "Passion Tango Tea"
+
+  };
+
+  // Storing prices of drinks in integer type array "drinkprice"
+  double drinkprice[10] =
+  {
+
+    2.05,
+    2.60,
+    2.85,
+    2.60,
+    2.50,
+    2.40,
+    2.70,
+    2.20,
+    2.45,
+    2.85
+
+  };
+
+  // Storing types of drinks in string type array "drinktype"
+  string drinktype[2] =
+  {
+
+    "HOT",
+    "ICED"
+
+  };
+
+  //Storing list of pastry in string type array "pastrymenu"
+  string pastrymenu[13] =
+  {
+
+    "Cinnamon Raisin Bagel",
+    "Birthday Cake Pop",
+    "Double Chocolate Brownie",
+    "Chocolate Chip Cookie",
+    "Ham & Swiss Croissant",
+    "Banana, Walnut & Pecan Loaf",
+    "Cinnamon Coffee Cake",
+    "Glazed Donut",
+    "Cheese Danish",
+    "Blueberry Muffin",
+    "Vanilla Bean Scone",
+    "Banana Nut Bread",
+    "Salted Caramel Tart"
+
+  };
+  // Storing prices of pastries in integer type array "pastryprice"
+  double pastryprice[13] =
+  {
+
+    1.25,
+    1.95,
+    2.35,
+    1.95,
+    2.75,
+    2.35,
+    2.65,
+    2.20,
+    2.45,
+    2.45,
+    2.45,
+    2.75,
+    2.70
+
+  };
+
+   int order, quantity, ctype, order2, quantity2;
+
+  cout << "\n\n\n\n\n\n\n\n\n\n\n\n";
+  cout << "\t\t\t\t----------STARBUCKS COFFEE----------\n\n";
+  char name [30];
+  cout << "Please enter your name: ";
+  cin.getline(name, 30);
+  cout << "Hello "<<name<< "!" << "\n\nWhat can we get started for you today?\n\n";
+  cout << "\t\t\t\t--------DRINKS MENU--------\n\n";
+  for (int i = 0; i < 10; i++)
+  {
+
+    // Showing drink menu to customer
+    cout << i + 1 << ". " << drinkmenu[i] << endl;
+
+  }
+
+  cout << "\nPlease select your drink of choice (1-10): ";
+
+  // Taking order from customer
+  cin >> order;
+
+  cout << "\nYou have selected " << "'" << drinkmenu[order - 1] << "'" << endl;
+
+  cout << "\nEnter Quantity : ";
+
+  // Taking quantity of drink
+  cin >> quantity;
+  
+  cout << "\nHot or Iced? \n\n";
+  
+  for (int i = 0; i < 2; i++)
+  {
+
+    // Showing type options to customer
+    cout << i + 1 << ". " << drinktype[i] << endl;
+
+  }
+
+  cout << "\nPress '1' for HOT & '2' for ICED: ";
+  cin >> ctype;
+  cout << "\n\n";
+  cout << "\t\t\t\t--------BAKED GOODS MENU--------\n\n";
+  for (int i = 0; i < 13; i++)
+  {
+
+    // Showing pastry menu to customer
+    cout << i + 1 << ". " << pastrymenu[i] << endl;
+
+  }
+
+  cout << "\nPlease select your pastry of choice (1-13): ";
+  // Taking order from customer
+  cin >> order2;
+
+  cout << "\nYou have selected " << "'" << pastrymenu[order2 - 1] << "'" << endl;
+
+  cout << "\nEnter Quantity : ";
+
+  // Taking quantity of pastry
+  cin >> quantity2;
+
+  cout << "\n\n\t\t\tYOUR BILL\n\n";
+
+  //Storing the total amount into the integer type variable "total"
+  double total = (drinkprice[order - 1] * quantity) + (pastryprice[order2 - 1] * quantity2);
+
+  // Showing bill with customer details
+  cout << "(" << drinktype[ctype - 1] << ")" << "\t" << drinkmenu[order - 1] << " x " << quantity << "\t\t\t" << drinkprice[order - 1] << " x " << quantity << endl;
+  cout << "\t" << pastrymenu[order2 - 1] << " x " << quantity2 << "\t\t\t" << pastryprice[order2 - 1] << " x " << quantity2 << endl;
+  cout << "\n-----------------------------------------------------------------\n";
+  cout << "Total" << "\t\t - \t\t\t\t\t" << total << " $\n" << endl;
+  cout << "\nThank you for choosing Starbucks Coffee. \nENJOY YOUR PASTRY & DRINK! :)\n";
+
+  return 0;
+}
